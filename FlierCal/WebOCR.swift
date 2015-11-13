@@ -44,7 +44,7 @@ class WebOCR {
                 if httpResponse.statusCode == 200 {
                     //let dataString = NSString(data: data, encoding: NSUTF8StringEncoding)
                     //println(dataString)
-                    println(self.parseJSON(data))
+                    println(self.getOCRText(self.parseJSON(data)))
                 }
             }
         }
@@ -91,6 +91,15 @@ class WebOCR {
         var dict: NSDictionary = NSJSONSerialization.JSONObjectWithData(inputData, options: NSJSONReadingOptions.MutableContainers, error: &error) as! NSDictionary
         
         return dict
+    }
+    
+    class func getOCRText(inputDict: NSDictionary) -> String {
+        if let ocrTextArray = inputDict["OCRText"] as? NSArray {
+            if let ocrText = ocrTextArray[0][0] as? String {
+                return ocrText
+            }
+        }
+        return "Failed to get text"
     }
     
 }
