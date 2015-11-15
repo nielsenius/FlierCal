@@ -21,6 +21,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     @IBOutlet weak var imagePicked: UIImageView!
+    @IBOutlet weak var imageTextLabel: UILabel!
     
     @IBAction func openCameraButton(sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
@@ -45,9 +46,11 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBAction func makeRequest(sender: AnyObject) {
         var imageData: NSData = UIImageJPEGRepresentation(imagePicked.image, 0.7)
         //var compressedImage = UIImage(data: imageData)
-        
-        WebOCR.getTextFromImage(imageData)
         //UIImageWriteToSavedPhotosAlbum(compressedJPGImage, nil, nil, nil)
+        
+        WebOCR.convertImageToString(imageData) { (imageText) -> Void in
+            self.imageTextLabel.text = imageText
+        }
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {

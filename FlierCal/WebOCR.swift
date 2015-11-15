@@ -14,7 +14,7 @@ let license = "AFA3F3AF-7B48-4583-A52D-820EE7232CFB"
 
 class WebOCR {
     
-    class func getTextFromImage(image: NSData) {
+    class func convertImageToString(image: NSData, completion: (imageText: String!) -> Void) {
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         
         let userPasswordString = "\(username):\(license)"
@@ -37,14 +37,12 @@ class WebOCR {
         request.HTTPBody = fullData
         request.HTTPShouldHandleCookies = false
         
-        //var jsonResponse: NSDictionary = ["success": "false"]
-        let task = session.dataTaskWithRequest(request) {
-            (let data, let response, let error) in
+        let task = session.dataTaskWithRequest(request) { (let data, let response, let error) in
             if let httpResponse = response as? NSHTTPURLResponse {
                 if httpResponse.statusCode == 200 {
-                    //let dataString = NSString(data: data, encoding: NSUTF8StringEncoding)
-                    //println(dataString)
-                    println(self.getOCRText(self.parseJSON(data)))
+                    completion(imageText: self.getOCRTextFromJSON(self.parseJSON(data)))
+                } else {
+                    completion(imageText: "Error")
                 }
             }
         }
@@ -93,7 +91,7 @@ class WebOCR {
         return dict
     }
     
-    class func getOCRText(inputDict: NSDictionary) -> String {
+    class func getOCRTextFromJSON(inputDict: NSDictionary) -> String {
         if let ocrTextArray = inputDict["OCRText"] as? NSArray {
             if let ocrText = ocrTextArray[0][0] as? String {
                 return ocrText
