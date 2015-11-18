@@ -20,9 +20,8 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         // Dispose of any resources that can be recreated.
     }
     
-    @IBOutlet weak var imagePicked: UIImageView!
-    @IBOutlet weak var imageTextLabel: UILabel!
-    
+    var imagePicked: UIImage?
+
     @IBAction func openCameraButton(sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
             var imagePicker = UIImagePickerController()
@@ -42,20 +41,19 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
             self.presentViewController(imagePicker, animated: true, completion: nil)
         }
     }
-    
-    @IBAction func makeRequest(sender: AnyObject) {
-        var imageData: NSData = UIImageJPEGRepresentation(imagePicked.image, 0.7)
-        //var compressedImage = UIImage(data: imageData)
-        //UIImageWriteToSavedPhotosAlbum(compressedJPGImage, nil, nil, nil)
         
-        WebOCR.convertImageToString(imageData) { (imageText) -> Void in
-            self.imageTextLabel.text = imageText
-        }
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+        imagePicked = image
+        self.dismissViewControllerAnimated(true, completion: nil);
+        
+        performSegueWithIdentifier("showConfirm", sender: nil)
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
-        imagePicked.image = image
-        self.dismissViewControllerAnimated(true, completion: nil);
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showConfirm" {
+            let showConfirm: ConfirmViewController = segue.destinationViewController as! ConfirmViewController
+            showConfirm.imagePicked = self.imagePicked!
+        }
     }
     
 //    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {

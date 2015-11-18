@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3447038C1BFC04A1001FCADF /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3447038B1BFC04A1001FCADF /* ConfirmViewController.swift */; };
+		3447038E1BFC13D6001FCADF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3447038D1BFC13D6001FCADF /* DetailViewController.swift */; };
 		34BC06721BF4DA8E000D496F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC06711BF4DA8E000D496F /* AppDelegate.swift */; };
 		34BC06741BF4DA8E000D496F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC06731BF4DA8E000D496F /* FirstViewController.swift */; };
 		34BC06761BF4DA8E000D496F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC06751BF4DA8E000D496F /* SecondViewController.swift */; };
@@ -28,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3447038B1BFC04A1001FCADF /* ConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
+		3447038D1BFC13D6001FCADF /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		34BC066C1BF4DA8E000D496F /* FlierCal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlierCal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34BC06701BF4DA8E000D496F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34BC06711BF4DA8E000D496F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +88,8 @@
 				34BC06711BF4DA8E000D496F /* AppDelegate.swift */,
 				34BC06731BF4DA8E000D496F /* FirstViewController.swift */,
 				34BC06751BF4DA8E000D496F /* SecondViewController.swift */,
+				3447038B1BFC04A1001FCADF /* ConfirmViewController.swift */,
+				3447038D1BFC13D6001FCADF /* DetailViewController.swift */,
 				34BC06931BF4E283000D496F /* WebOCR.swift */,
 				34BC06771BF4DA8E000D496F /* Main.storyboard */,
 				34BC067A1BF4DA8E000D496F /* Images.xcassets */,
@@ -218,8 +224,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3447038C1BFC04A1001FCADF /* ConfirmViewController.swift in Sources */,
 				34BC06761BF4DA8E000D496F /* SecondViewController.swift in Sources */,
 				34BC06941BF4E283000D496F /* WebOCR.swift in Sources */,
+				3447038E1BFC13D6001FCADF /* DetailViewController.swift in Sources */,
 				34BC06721BF4DA8E000D496F /* AppDelegate.swift in Sources */,
 				34BC06741BF4DA8E000D496F /* FirstViewController.swift in Sources */,
 			);
@@ -417,6 +425,7 @@
 				34BC068F1BF4DA8E000D496F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		34BC06901BF4DA8E000D496F /* Build configuration list for PBXNativeTarget "FlierCalTests" */ = {
 			isa = XCConfigurationList;
@@ -425,6 +434,7 @@
 				34BC06921BF4DA8E000D496F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
