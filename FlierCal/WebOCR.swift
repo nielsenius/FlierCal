@@ -42,7 +42,7 @@ class WebOCR {
                 if httpResponse.statusCode == 200 {
                     completion(imageText: self.getOCRTextFromJSON(self.parseJSON(data)))
                 } else {
-                    completion(imageText: "Error")
+                    completion(imageText: "Error in API request")
                 }
             }
         }
@@ -97,7 +97,7 @@ class WebOCR {
                 return ocrText
             }
         }
-        return "Failed to get text"
+        return "Error in JSON parsing"
     }
     
 }

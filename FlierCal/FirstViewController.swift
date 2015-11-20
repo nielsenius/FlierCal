@@ -56,23 +56,5 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
     }
     
-//    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
-//        let imageURL = info[UIImagePickerControllerReferenceURL] as! NSURL
-//        let imageName = imageURL.path!.lastPathComponent
-//        let documentDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first as! String
-//        let localPath = documentDirectory.stringByAppendingPathComponent(imageName)
-//        
-//        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-//        let data = UIImageJPEGRepresentation(image, 0.7)
-//        data.writeToFile(localPath, atomically: true)
-//        
-//        let imageData = NSData(contentsOfFile: localPath)!
-//        let photoURL = NSURL(fileURLWithPath: localPath)
-//        println(photoURL)
-//        let imageWithData = UIImage(data: imageData)!
-//        
-//        picker.dismissViewControllerAnimated(true, completion: nil)
-//    }
-    
 }
 

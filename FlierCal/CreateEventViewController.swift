@@ -8,10 +8,11 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class CreateEventViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //self.tableView.tableFooterView = UIView()
         displayDetails()
     }
     
@@ -20,18 +21,28 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBOutlet weak var imageTextLabel: UILabel!
-    
     var imagePicked: UIImage?
-    var imageText: String?
+    
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var dateTextField: UITextField!
+    @IBOutlet weak var timeTextField: UITextField!
+    @IBOutlet weak var locationTextField: UITextField!
+    
+    @IBAction func createEventButton() {
+        
+    }
+    
+    @IBAction func cancelButton() {
+        
+    }
     
     func displayDetails() {
-        var imageData: NSData = UIImageJPEGRepresentation(imagePicked, 0.7)
+        var imageData: NSData = UIImageJPEGRepresentation(imagePicked, 0.5)
         //var compressedImage = UIImage(data: imageData)
         //UIImageWriteToSavedPhotosAlbum(compressedJPGImage, nil, nil, nil)
         
         WebOCR.convertImageToString(imageData) { (imageText) -> Void in
-            self.imageTextLabel.text = imageText
+            self.parseImageText(imageText)
         }
     }
     
@@ -41,6 +52,14 @@ class DetailViewController: UIViewController {
             //println(showConfirm.imagePicked)
             //showConfirm.imagePicked = self.imagePicked!
         }
+    }
+    
+    func parseImageText(imageText: String) {
+        titleTextField.text = imageText
+        // dateTextField
+        // timeTextField
+        // locationTextField
+        // will put regex here
     }
     
 }

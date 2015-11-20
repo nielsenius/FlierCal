@@ -26,9 +26,9 @@ class ConfirmViewController: UIViewController {
     var imagePicked: UIImage?
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showDetail" {
-            let showDetail: DetailViewController = segue.destinationViewController as! DetailViewController
-            showDetail.imagePicked = self.imagePicked!
+        if segue.identifier == "showCreateEvent" {
+            let createEvent: CreateEventViewController = segue.destinationViewController as! CreateEventViewController
+            createEvent.imagePicked = self.imagePicked!
         }
     }
     
