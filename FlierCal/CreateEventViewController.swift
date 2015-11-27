@@ -7,13 +7,32 @@
 //
 
 import UIKit
+import EventKit
 
 class CreateEventViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.tableView.tableFooterView = UIView()
-        displayDetails()
+        
+        eventStore = EKEventStore()
+        
+        switch EKEventStore.authorizationStatusForEntityType(EKEntityTypeEvent) {
+        case .Authorized:
+            authorized = true
+        case .Denied:
+            authorized = false
+        default:
+            eventStore!.requestAccessToEntityType(EKEntityTypeEvent, completion:
+                {[weak self] (granted: Bool, error: NSError!) -> Void in
+                    if granted {
+                        self!.authorized = true
+                    } else {
+                        self!.authorized = false
+                    }
+                })
+        }
+        
+        populateForm()
     }
     
     override func didReceiveMemoryWarning() {
@@ -22,6 +41,8 @@ class CreateEventViewController: UITableViewController {
     }
     
     var imagePicked: UIImage?
+    var eventStore: EKEventStore?
+    var authorized: Bool?
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
@@ -29,14 +50,29 @@ class CreateEventViewController: UITableViewController {
     @IBOutlet weak var locationTextField: UITextField!
     
     @IBAction func createEventButton() {
+        let calendars = eventStore!.calendarsForEntityType(EKEntityTypeEvent)
         
+        // http://stackoverflow.com/questions/24777496/how-can-i-convert-string-date-to-nsdate
+        let startDate = NSDate()
+        let endDate = startDate.dateByAddingTimeInterval(60 * 60)
+        
+        var event = EKEvent(eventStore: eventStore!)
+
+        event.calendar = eventStore!.defaultCalendarForNewEvents
+        event.title = titleTextField.text
+        event.startDate = startDate
+        event.endDate = endDate
+        event.location = titleTextField.text
+        event.notes = "Created with FlierCal"
+        
+        eventStore!.saveEvent(event, span: EKSpanThisEvent, error: nil)
     }
     
     @IBAction func cancelButton() {
         
     }
     
-    func displayDetails() {
+    func populateForm() {
         var imageData: NSData = UIImageJPEGRepresentation(imagePicked, 0.5)
         //var compressedImage = UIImage(data: imageData)
         //UIImageWriteToSavedPhotosAlbum(compressedJPGImage, nil, nil, nil)
