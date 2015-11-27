@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--First View Controller-->
+        <!--Choose Photo-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="FlierCal" customModuleProvider="target" sceneMemberID="viewController">
@@ -44,7 +44,7 @@
                             <constraint firstAttribute="centerX" secondItem="bYD-eZ-dWp" secondAttribute="centerX" constant="-0.5" id="tcp-rM-oKu"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="K5a-hr-Mzd"/>
+                    <navigationItem key="navigationItem" title="Choose Photo" id="K5a-hr-Mzd"/>
                     <connections>
                         <segue destination="Jk5-BB-5OI" kind="show" identifier="showConfirm" id="334-hv-sAZ"/>
                     </connections>
@@ -98,10 +98,10 @@
             </objects>
             <point key="canvasLocation" x="2136" y="-320"/>
         </scene>
-        <!--Create Event View Controller-->
+        <!--Create Event-->
         <scene sceneID="8vE-Sj-34r">
             <objects>
-                <tableViewController id="c7S-cY-bhZ" customClass="CreateEventViewController" customModule="FlierCal" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Create Event" id="c7S-cY-bhZ" customClass="CreateEventViewController" customModule="FlierCal" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="c1R-UF-Ldo">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -234,7 +234,7 @@
             </objects>
             <point key="canvasLocation" x="2836" y="-320"/>
         </scene>
-        <!--Item-->
+        <!--Events-->
         <scene sceneID="Lqi-fF-i4e">
             <objects>
                 <tableViewController id="VTe-dv-1JK" customClass="ListEventsViewController" customModule="FlierCal" customModuleProvider="target" sceneMemberID="viewController">
@@ -244,10 +244,26 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="CTV-KM-mDZ">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="eventCell" textLabel="p7W-IH-3oz" detailTextLabel="fxW-Nb-bIO" style="IBUITableViewCellStyleSubtitle" id="CTV-KM-mDZ">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CTV-KM-mDZ" id="a7A-B1-J8l">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="p7W-IH-3oz">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fxW-Nb-bIO">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
@@ -258,11 +274,11 @@
                             <outlet property="delegate" destination="VTe-dv-1JK" id="3WE-Os-Rvg"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="gfI-hW-vey"/>
+                    <navigationItem key="navigationItem" title="Events" id="UQL-Cg-jAR"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5fz-4i-gkp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="356"/>
+            <point key="canvasLocation" x="1452" y="356"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -277,7 +293,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="ByK-ty-nNm" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="VTe-dv-1JK" kind="relationship" relationship="viewControllers" id="NV7-d5-Leu"/>
+                        <segue destination="Efx-RS-nrp" kind="relationship" relationship="viewControllers" id="NV7-d5-Leu"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -303,6 +319,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rfl-eK-W1H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="750" y="-320"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="R5U-yY-IWT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Efx-RS-nrp" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="gfI-hW-vey"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pp2-jV-dh5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="VTe-dv-1JK" kind="relationship" relationship="rootViewController" id="n8I-mz-wGq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Oe-Ee-2yc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="750" y="356"/>
         </scene>
     </scenes>
     <resources>

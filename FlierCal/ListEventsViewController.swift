@@ -9,12 +9,21 @@
 import UIKit
 import EventKit
 
+extension NSDate {
+    var formatted: String {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "MM/dd/yyyy, hh:mm a"
+        return formatter.stringFromDate(self)
+    }
+}
+
 class ListEventsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        eventStore = EKEventStore()
+        tableView.delegate = self
+        tableView.dataSource = self
         
         switch EKEventStore.authorizationStatusForEntityType(EKEntityTypeEvent) {
         case .Authorized:
@@ -31,6 +40,9 @@ class ListEventsViewController: UITableViewController {
                     }
                 })
         }
+        
+        eventStore = EKEventStore()
+        appEvents = getAppEvents()
     }
     
     override func didReceiveMemoryWarning() {
@@ -40,23 +52,29 @@ class ListEventsViewController: UITableViewController {
     
     var eventStore: EKEventStore?
     var authorized: Bool?
+    var appEvents: [EKEvent]?
     
     func getAppEvents() -> [EKEvent] {
-        let predicate = eventStore!.predicateForEventsWithStartDate(NSDate.distantPast() as! NSDate, endDate: NSDate.distantFuture() as! NSDate, calendars: nil)
+        let startDate = NSDate(timeIntervalSinceNow: -1 * 2 * 365 * 24 * 60 * 60)
+        let endDate = NSDate(timeIntervalSinceNow: 2 * 365 * 24 * 60 * 60)
+        let predicate = eventStore!.predicateForEventsWithStartDate(startDate, endDate: endDate, calendars: nil)
         let events = eventStore!.eventsMatchingPredicate(predicate) as! [EKEvent]
-        var appEvents = [EKEvent]()
+        var returnEvents = [EKEvent]()
         
         if events != [] {
             for e in events {
-                if e.notes == "Created with FlierCal" {
-                    println(e.title)
-                    appEvents.append(e)
+                if e.notes != nil && e.notes == "Created with FlierCal" {
+                    returnEvents.append(e)
                 }
             }
         }
         
-        return appEvents
+        return returnEvents
     }
+    
+//    func formatDate(date: NSDate) -> String {
+//        
+//    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "" {
@@ -64,6 +82,33 @@ class ListEventsViewController: UITableViewController {
             //println(showConfirm.imagePicked)
             //showConfirm.imagePicked = self.imagePicked!
         }
+    }
+    
+    // UITextFieldDelegate methods
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return appEvents!.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("eventCell", forIndexPath: indexPath) as! UITableViewCell
+        
+        let row = indexPath.row
+        cell.textLabel!.text = appEvents![row].title
+        cell.detailTextLabel!.text = "\(appEvents![row].startDate.formatted), \(appEvents![row].location)"
+        
+        return cell
+    }
+    
+    // UITableViewDelegate methods
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let row = indexPath.row
     }
     
 }
