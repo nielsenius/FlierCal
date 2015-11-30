@@ -14,6 +14,8 @@ class CreateEventViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.hidesBackButton = true
+        
         eventStore = EKEventStore()
         
         switch EKEventStore.authorizationStatusForEntityType(EKEntityTypeEvent) {
@@ -43,6 +45,7 @@ class CreateEventViewController: UITableViewController {
     var imagePicked: UIImage?
     var eventStore: EKEventStore?
     var authorized: Bool?
+    var eventForSegue: EKEvent?
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
@@ -65,6 +68,7 @@ class CreateEventViewController: UITableViewController {
         event.location = titleTextField.text
         event.notes = "Created with FlierCal"
         
+        eventForSegue = event
         eventStore!.saveEvent(event, span: EKSpanThisEvent, error: nil)
     }
     
@@ -83,10 +87,9 @@ class CreateEventViewController: UITableViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "" {
-            //let showConfirm: ConfirmViewController = segue.destinationViewController as! ConfirmViewController
-            //println(showConfirm.imagePicked)
-            //showConfirm.imagePicked = self.imagePicked!
+        if segue.identifier == "showDetail" {
+            let showDetail: EventDetailViewController = segue.destinationViewController as! EventDetailViewController
+            showDetail.event = eventForSegue
         }
     }
     

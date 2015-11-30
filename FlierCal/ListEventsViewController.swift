@@ -55,8 +55,8 @@ class ListEventsViewController: UITableViewController {
     var appEvents: [EKEvent]?
     
     func getAppEvents() -> [EKEvent] {
-        let startDate = NSDate(timeIntervalSinceNow: -1 * 2 * 365 * 24 * 60 * 60)
-        let endDate = NSDate(timeIntervalSinceNow: 2 * 365 * 24 * 60 * 60)
+        let startDate = NSDate(timeIntervalSinceNow: -1 * 2 * 365 * 24 * 60 * 60) // 2 years ago
+        let endDate = NSDate(timeIntervalSinceNow: 2 * 365 * 24 * 60 * 60) // 2 years from now
         let predicate = eventStore!.predicateForEventsWithStartDate(startDate, endDate: endDate, calendars: nil)
         let events = eventStore!.eventsMatchingPredicate(predicate) as! [EKEvent]
         var returnEvents = [EKEvent]()
@@ -72,19 +72,15 @@ class ListEventsViewController: UITableViewController {
         return returnEvents
     }
     
-//    func formatDate(date: NSDate) -> String {
-//        
-//    }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "" {
-            //let showConfirm: ConfirmViewController = segue.destinationViewController as! ConfirmViewController
-            //println(showConfirm.imagePicked)
-            //showConfirm.imagePicked = self.imagePicked!
+        if segue.identifier == "showDetail" {
+            let showDetail: EventDetailViewController = segue.destinationViewController as! EventDetailViewController
+            let row = tableView.indexPathForSelectedRow()!.row
+            showDetail.event = appEvents![row]
         }
     }
     
-    // UITextFieldDelegate methods
+    // UITableView methods
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -103,8 +99,6 @@ class ListEventsViewController: UITableViewController {
         
         return cell
     }
-    
-    // UITableViewDelegate methods
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
