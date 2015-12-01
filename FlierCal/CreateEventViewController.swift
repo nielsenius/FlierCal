@@ -69,7 +69,7 @@ class CreateEventViewController: UITableViewController {
         event.notes = "Created with FlierCal"
         
         eventForSegue = event
-        eventStore!.saveEvent(event, span: EKSpanThisEvent, error: nil)
+        //eventStore!.saveEvent(event, span: EKSpanThisEvent, error: nil)
     }
     
     @IBAction func cancelButton() {
@@ -95,10 +95,9 @@ class CreateEventViewController: UITableViewController {
     
     func parseImageText(imageText: String) {
         titleTextField.text = imageText
-        // dateTextField
-        // timeTextField
-        // locationTextField
-        // will put regex here
+        dateTextField.text = "1/1/16"
+        timeTextField.text = "12:00 PM"
+        locationTextField.text = "5000 Forbes Ave"
     }
     
 }

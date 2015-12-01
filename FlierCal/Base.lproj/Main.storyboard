@@ -73,7 +73,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYl-is-fgQ">
-                                <rect key="frame" x="263" y="470" width="74" height="30"/>
+                                <rect key="frame" x="263" y="443" width="74" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Use Image">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -82,12 +82,23 @@
                                     <segue destination="c7S-cY-bhZ" kind="show" identifier="showCreateEvent" id="8Y8-JD-hjJ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eFw-DH-WvQ">
+                                <rect key="frame" x="276" y="495" width="48" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="9pv-A4-QxB" kind="show" identifier="cancelImage" id="Hs2-ZY-9eF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="8rF-NQ-vU7" secondAttribute="centerX" id="GzT-uq-fkV"/>
                             <constraint firstAttribute="centerX" secondItem="EYl-is-fgQ" secondAttribute="centerX" id="xYx-fv-OBx"/>
+                            <constraint firstAttribute="centerX" secondItem="eFw-DH-WvQ" secondAttribute="centerX" id="zAt-MI-bKQ"/>
                         </constraints>
                     </view>
                     <connections>
@@ -130,6 +141,7 @@
                                     </state>
                                     <connections>
                                         <action selector="cancelButton" destination="c7S-cY-bhZ" eventType="touchUpInside" id="xbt-xi-WYz"/>
+                                        <segue destination="9pv-A4-QxB" kind="show" id="OsN-lI-SxK"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -228,6 +240,9 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="dateTextField" destination="mXy-Oy-ads" id="HN6-Id-jJ0"/>
+                        <outlet property="locationTextField" destination="wew-qz-BiL" id="p6A-hM-vRL"/>
+                        <outlet property="timeTextField" destination="qz1-rn-zth" id="Ufa-9E-YLr"/>
                         <outlet property="titleTextField" destination="BCI-z3-C8G" id="Mry-WG-FZ9"/>
                     </connections>
                 </tableViewController>
@@ -410,6 +425,7 @@
         <image name="first" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="OsN-lI-SxK"/>
         <segue reference="NFL-2H-214"/>
     </inferredMetricsTieBreakers>
 </document>

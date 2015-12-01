@@ -27,6 +27,10 @@ class EventDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if !shouldShowBackButton() {
+            self.navigationItem.hidesBackButton = true
+        }
+        
         titleLabel.text = event!.title
         timeLabel.text = event!.startDate.time
         dateLabel.text = event!.startDate.date
@@ -39,10 +43,17 @@ class EventDetailViewController: UIViewController {
     }
     
     var event: EKEvent?
+    var prevPage: String?
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
+    
+    func shouldShowBackButton() -> Bool {
+        let n: Int! = self.navigationController?.viewControllers?.count
+        let viewController = self.navigationController?.viewControllers[n - 2] as! UIViewController
+        return (viewController.navigationItem.title! == "Events")
+    }
     
 }
