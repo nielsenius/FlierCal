@@ -27,7 +27,9 @@ class EventDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if !shouldShowBackButton() {
+        if shouldShowBackButton() {
+            anotherButton.hidden = true
+        } else {
             self.navigationItem.hidesBackButton = true
         }
         
@@ -49,6 +51,7 @@ class EventDetailViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var anotherButton: UIButton!
     
     func shouldShowBackButton() -> Bool {
         let n: Int! = self.navigationController?.viewControllers?.count

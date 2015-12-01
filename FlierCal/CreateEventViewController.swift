@@ -16,6 +16,9 @@ class CreateEventViewController: UITableViewController {
         
         self.navigationItem.hidesBackButton = true
         
+        createButton.hidden = true
+        cancelButton.hidden = true
+        
         eventStore = EKEventStore()
         
         switch EKEventStore.authorizationStatusForEntityType(EKEntityTypeEvent) {
@@ -52,6 +55,10 @@ class CreateEventViewController: UITableViewController {
     @IBOutlet weak var timeTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     
+    @IBOutlet weak var createButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    
     @IBAction func createEventButton() {
         let calendars = eventStore!.calendarsForEntityType(EKEntityTypeEvent)
         
@@ -65,15 +72,11 @@ class CreateEventViewController: UITableViewController {
         event.title = titleTextField.text
         event.startDate = startDate
         event.endDate = endDate
-        event.location = titleTextField.text
+        event.location = locationTextField.text
         event.notes = "Created with FlierCal"
         
         eventForSegue = event
         //eventStore!.saveEvent(event, span: EKSpanThisEvent, error: nil)
-    }
-    
-    @IBAction func cancelButton() {
-        
     }
     
     func populateForm() {
@@ -83,7 +86,14 @@ class CreateEventViewController: UITableViewController {
         
         WebOCR.convertImageToString(imageData) { (imageText) -> Void in
             self.parseImageText(imageText)
+            self.stopLoading()
         }
+    }
+    
+    func stopLoading() {
+        createButton.hidden = false
+        cancelButton.hidden = false
+        loadingIndicator.stopAnimating()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

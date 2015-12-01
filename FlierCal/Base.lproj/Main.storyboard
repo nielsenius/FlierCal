@@ -144,12 +144,17 @@
                                         <segue destination="9pv-A4-QxB" kind="show" id="OsN-lI-SxK"/>
                                     </connections>
                                 </button>
+                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="6X3-ju-mmp">
+                                    <rect key="frame" x="290" y="45" width="20" height="20"/>
+                                    <animations/>
+                                </activityIndicatorView>
                             </subviews>
                             <animations/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="centerX" secondItem="kZP-Zl-WJf" secondAttribute="centerX" id="114-wu-9bR"/>
                                 <constraint firstAttribute="centerX" secondItem="E0a-PS-SB5" secondAttribute="centerX" constant="-0.5" id="Jch-tP-lwc"/>
+                                <constraint firstAttribute="centerX" secondItem="6X3-ju-mmp" secondAttribute="centerX" id="XTC-dW-Fg7"/>
                             </constraints>
                         </view>
                         <sections>
@@ -240,7 +245,10 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="cancelButton" destination="kZP-Zl-WJf" id="o57-5j-zel"/>
+                        <outlet property="createButton" destination="E0a-PS-SB5" id="kCj-Y6-okR"/>
                         <outlet property="dateTextField" destination="mXy-Oy-ads" id="HN6-Id-jJ0"/>
+                        <outlet property="loadingIndicator" destination="6X3-ju-mmp" id="tXP-mn-bUP"/>
                         <outlet property="locationTextField" destination="wew-qz-BiL" id="p6A-hM-vRL"/>
                         <outlet property="timeTextField" destination="qz1-rn-zth" id="Ufa-9E-YLr"/>
                         <outlet property="titleTextField" destination="BCI-z3-C8G" id="Mry-WG-FZ9"/>
@@ -269,14 +277,14 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fxW-Nb-bIO">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -315,41 +323,53 @@
                                 <rect key="frame" x="284" y="246" width="33" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7xn-Rj-aTi">
                                 <rect key="frame" x="281" y="275" width="38" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OyH-Uo-aN6">
                                 <rect key="frame" x="282" y="304" width="36" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KLh-T7-rZ8">
                                 <rect key="frame" x="267" y="333" width="67" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOw-gJ-RDd">
+                                <rect key="frame" x="227" y="467" width="147" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Create Another Event">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="9pv-A4-QxB" kind="show" id="S9B-hA-8Qs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="1Rn-Qh-pis" secondAttribute="centerX" constant="-0.5" id="8wn-k4-mD1"/>
                             <constraint firstAttribute="centerX" secondItem="KLh-T7-rZ8" secondAttribute="centerX" constant="-0.5" id="Jd1-5B-h3h"/>
+                            <constraint firstAttribute="centerX" secondItem="tOw-gJ-RDd" secondAttribute="centerX" constant="-0.5" id="gb0-xu-7eg"/>
                             <constraint firstAttribute="centerX" secondItem="OyH-Uo-aN6" secondAttribute="centerX" id="hOi-OW-jhJ"/>
                             <constraint firstAttribute="centerX" secondItem="7xn-Rj-aTi" secondAttribute="centerX" id="j6g-8A-Hfn"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="anotherButton" destination="tOw-gJ-RDd" id="R5c-yN-adv"/>
                         <outlet property="dateLabel" destination="OyH-Uo-aN6" id="Ynv-RU-KQO"/>
                         <outlet property="locationLabel" destination="KLh-T7-rZ8" id="SZG-72-5Ge"/>
                         <outlet property="timeLabel" destination="7xn-Rj-aTi" id="y6t-c7-Bg9"/>
@@ -425,7 +445,7 @@
         <image name="first" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="OsN-lI-SxK"/>
+        <segue reference="S9B-hA-8Qs"/>
         <segue reference="NFL-2H-214"/>
     </inferredMetricsTieBreakers>
 </document>
