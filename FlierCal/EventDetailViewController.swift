@@ -27,12 +27,6 @@ class EventDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if shouldShowBackButton() {
-            anotherButton.hidden = true
-        } else {
-            self.navigationItem.hidesBackButton = true
-        }
-        
         titleLabel.text = event!.title
         timeLabel.text = event!.startDate.time
         dateLabel.text = event!.startDate.date
@@ -45,18 +39,25 @@ class EventDetailViewController: UIViewController {
     }
     
     var event: EKEvent?
-    var prevPage: String?
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var anotherButton: UIButton!
     
-    func shouldShowBackButton() -> Bool {
-        let n: Int! = self.navigationController?.viewControllers?.count
-        let viewController = self.navigationController?.viewControllers[n - 2] as! UIViewController
-        return (viewController.navigationItem.title! == "Events")
+    @IBAction func shareButton() {
+        let eventDetails = [
+            "Title: \(titleLabel.text!)",
+            "Time: \(timeLabel.text!)",
+            "Date: \(dateLabel.text!)",
+            "Location: \(locationLabel.text!)"
+        ]
+        let activityViewController = UIActivityViewController(activityItems: eventDetails, applicationActivities: nil)
+        presentViewController(activityViewController, animated: true, completion: {})
+    }
+    
+    @IBAction func openCalButton() {
+        UIApplication.sharedApplication().openURL(NSURL(string: "calshow://")!)
     }
     
 }

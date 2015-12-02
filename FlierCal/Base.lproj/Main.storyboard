@@ -53,10 +53,10 @@
             </objects>
             <point key="canvasLocation" x="1452" y="-320"/>
         </scene>
-        <!--Confirm View Controller-->
+        <!--Confirm Photo-->
         <scene sceneID="Obg-E1-CzQ">
             <objects>
-                <viewController id="Jk5-BB-5OI" customClass="ConfirmViewController" customModule="FlierCal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Confirm Photo" id="Jk5-BB-5OI" customClass="ConfirmViewController" customModule="FlierCal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ifO-UU-r7Q"/>
                         <viewControllerLayoutGuide type="bottom" id="e0P-g4-hSV"/>
@@ -73,9 +73,9 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYl-is-fgQ">
-                                <rect key="frame" x="263" y="443" width="74" height="30"/>
+                                <rect key="frame" x="264" y="443" width="72" height="30"/>
                                 <animations/>
-                                <state key="normal" title="Use Image">
+                                <state key="normal" title="Use Photo">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -130,7 +130,7 @@
                                     </state>
                                     <connections>
                                         <action selector="createEventButton" destination="c7S-cY-bhZ" eventType="touchUpInside" id="6TW-bE-0Jg"/>
-                                        <segue destination="CM8-xs-11R" kind="show" identifier="showDetail" id="NFL-2H-214"/>
+                                        <segue destination="9pv-A4-QxB" kind="show" id="gL2-xw-Exe"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZP-Zl-WJf">
@@ -307,10 +307,10 @@
             </objects>
             <point key="canvasLocation" x="1452" y="426"/>
         </scene>
-        <!--Event Detail View Controller-->
+        <!--Event Details-->
         <scene sceneID="dtB-O2-iXK">
             <objects>
-                <viewController id="CM8-xs-11R" customClass="EventDetailViewController" customModule="FlierCal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Event Details" id="CM8-xs-11R" customClass="EventDetailViewController" customModule="FlierCal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="riw-JT-dUv"/>
                         <viewControllerLayoutGuide type="bottom" id="Hra-UN-YZL"/>
@@ -347,29 +347,40 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOw-gJ-RDd">
-                                <rect key="frame" x="227" y="467" width="147" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cnk-o0-aTp">
+                                <rect key="frame" x="259" y="433" width="83" height="30"/>
                                 <animations/>
-                                <state key="normal" title="Create Another Event">
+                                <state key="normal" title="Share Event">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="9pv-A4-QxB" kind="show" id="S9B-hA-8Qs"/>
+                                    <action selector="shareButton" destination="CM8-xs-11R" eventType="touchUpInside" id="D7k-kz-tfH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENH-yT-fYo">
+                                <rect key="frame" x="248" y="479" width="104" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Open Calendar">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="openCalButton" destination="CM8-xs-11R" eventType="touchUpInside" id="yHA-Oi-Vuw"/>
                                 </connections>
                             </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ENH-yT-fYo" firstAttribute="top" secondItem="riw-JT-dUv" secondAttribute="bottom" constant="415" id="7h5-Ig-RB6"/>
+                            <constraint firstAttribute="centerX" secondItem="ENH-yT-fYo" secondAttribute="centerX" id="7ot-Uh-7gl"/>
                             <constraint firstAttribute="centerX" secondItem="1Rn-Qh-pis" secondAttribute="centerX" constant="-0.5" id="8wn-k4-mD1"/>
                             <constraint firstAttribute="centerX" secondItem="KLh-T7-rZ8" secondAttribute="centerX" constant="-0.5" id="Jd1-5B-h3h"/>
-                            <constraint firstAttribute="centerX" secondItem="tOw-gJ-RDd" secondAttribute="centerX" constant="-0.5" id="gb0-xu-7eg"/>
+                            <constraint firstAttribute="centerX" secondItem="Cnk-o0-aTp" secondAttribute="centerX" constant="-0.5" id="dWd-Dc-iT5"/>
                             <constraint firstAttribute="centerX" secondItem="OyH-Uo-aN6" secondAttribute="centerX" id="hOi-OW-jhJ"/>
                             <constraint firstAttribute="centerX" secondItem="7xn-Rj-aTi" secondAttribute="centerX" id="j6g-8A-Hfn"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="anotherButton" destination="tOw-gJ-RDd" id="R5c-yN-adv"/>
                         <outlet property="dateLabel" destination="OyH-Uo-aN6" id="Ynv-RU-KQO"/>
                         <outlet property="locationLabel" destination="KLh-T7-rZ8" id="SZG-72-5Ge"/>
                         <outlet property="timeLabel" destination="7xn-Rj-aTi" id="y6t-c7-Bg9"/>
@@ -400,11 +411,11 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--First-->
+        <!--Create Event-->
         <scene sceneID="TIw-E6-pqe">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ByK-ty-nNm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Create Event" image="plus" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bwp-oF-D3m">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -420,11 +431,11 @@
             </objects>
             <point key="canvasLocation" x="750" y="-320"/>
         </scene>
-        <!--Item-->
+        <!--Events-->
         <scene sceneID="R5U-yY-IWT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Efx-RS-nrp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="gfI-hW-vey"/>
+                    <tabBarItem key="tabBarItem" title="Events" image="calendar" id="gfI-hW-vey"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pp2-jV-dh5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -442,10 +453,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
+        <image name="calendar" width="25" height="25"/>
+        <image name="plus" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="S9B-hA-8Qs"/>
-        <segue reference="NFL-2H-214"/>
+        <segue reference="gL2-xw-Exe"/>
     </inferredMetricsTieBreakers>
 </document>
