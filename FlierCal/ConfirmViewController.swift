@@ -15,6 +15,7 @@ class ConfirmViewController: UIViewController {
         
         self.navigationItem.hidesBackButton = true
         
+        imagePickedView.contentMode = .ScaleAspectFit
         imagePickedView.image = imagePicked!
     }
     

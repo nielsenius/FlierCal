@@ -13,7 +13,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if shouldShowAlert() {
+        if shouldShowAlert != nil {
             showAlert()
         }
         
@@ -27,6 +27,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     var imagePicked: UIImage?
     var imageSource: String?
+    var shouldShowAlert: Bool?
 
     @IBAction func openCameraButton(sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
@@ -61,15 +62,6 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
         
         performSegueWithIdentifier("showConfirm", sender: nil)
-    }
-    
-    func shouldShowAlert() -> Bool {
-        let n: Int! = self.navigationController?.viewControllers?.count
-        if n == 1 {
-            return false
-        }
-        let viewController = self.navigationController?.viewControllers[n - 2] as! UIViewController
-        return (viewController.navigationItem.title! == "Create Event")
     }
     
     func showAlert() {

@@ -67,7 +67,8 @@ class CreateEventViewController: UITableViewController {
         let endDate = startDate.dateByAddingTimeInterval(60 * 60)
         
         var event = EKEvent(eventStore: eventStore!)
-
+        
+        // look into reminders and other event attributes
         event.calendar = eventStore!.defaultCalendarForNewEvents
         event.title = titleTextField.text
         event.startDate = startDate
@@ -76,7 +77,7 @@ class CreateEventViewController: UITableViewController {
         event.notes = "Created with FlierCal"
         
         eventForSegue = event
-        //eventStore!.saveEvent(event, span: EKSpanThisEvent, error: nil)
+        eventStore!.saveEvent(event, span: EKSpanThisEvent, error: nil)
     }
     
     func populateForm() {
@@ -97,15 +98,15 @@ class CreateEventViewController: UITableViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showDetail" {
-            let showDetail: EventDetailViewController = segue.destinationViewController as! EventDetailViewController
-            showDetail.event = eventForSegue
+        if segue.identifier == "eventCreated" {
+            let home: FirstViewController = segue.destinationViewController as! FirstViewController
+            home.shouldShowAlert = true
         }
     }
     
     func parseImageText(imageText: String) {
-        titleTextField.text = "Camp Kesem"
-        dateTextField.text = "1/1/16"
+        titleTextField.text = "#givingCMUday"
+        dateTextField.text = "12/1/15"
         timeTextField.text = "12:00 PM"
         locationTextField.text = "5000 Forbes Ave"
     }
