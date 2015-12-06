@@ -83,12 +83,12 @@ class CreateEventViewController: UITableViewController {
     func populateForm() {
         var imageData: NSData = UIImageJPEGRepresentation(imagePicked, 0.5)
         
-//        WebOCR.convertImageToString(imageData) { (imageText) -> Void in
-//            self.parseImageText(imageText)
-//            self.stopLoading()
-//        }
-        self.parseImageText("text")
-        self.stopLoading()
+        WebOCR.convertImageToString(imageData) { (imageText) -> Void in
+            self.parseImageText(imageText)
+            self.stopLoading()
+        }
+//        self.parseImageText("text")
+//        self.stopLoading()
     }
     
     func stopLoading() {

@@ -16,7 +16,6 @@
 		34BC06761BF4DA8E000D496F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC06751BF4DA8E000D496F /* SecondViewController.swift */; };
 		34BC06791BF4DA8E000D496F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34BC06771BF4DA8E000D496F /* Main.storyboard */; };
 		34BC067B1BF4DA8E000D496F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34BC067A1BF4DA8E000D496F /* Images.xcassets */; };
-		34BC067E1BF4DA8E000D496F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34BC067C1BF4DA8E000D496F /* LaunchScreen.xib */; };
 		34BC068A1BF4DA8E000D496F /* FlierCalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC06891BF4DA8E000D496F /* FlierCalTests.swift */; };
 		34BC06941BF4E283000D496F /* WebOCR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC06931BF4E283000D496F /* WebOCR.swift */; };
 /* End PBXBuildFile section */
@@ -43,7 +42,6 @@
 		34BC06751BF4DA8E000D496F /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		34BC06781BF4DA8E000D496F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		34BC067A1BF4DA8E000D496F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		34BC067D1BF4DA8E000D496F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		34BC06831BF4DA8E000D496F /* FlierCalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlierCalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		34BC06881BF4DA8E000D496F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34BC06891BF4DA8E000D496F /* FlierCalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlierCalTests.swift; sourceTree = "<group>"; };
@@ -99,7 +97,6 @@
 				34BC06931BF4E283000D496F /* WebOCR.swift */,
 				34BC06771BF4DA8E000D496F /* Main.storyboard */,
 				34BC067A1BF4DA8E000D496F /* Images.xcassets */,
-				34BC067C1BF4DA8E000D496F /* LaunchScreen.xib */,
 				34BC066F1BF4DA8E000D496F /* Supporting Files */,
 			);
 			path = FlierCal;
@@ -211,7 +208,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				34BC06791BF4DA8E000D496F /* Main.storyboard in Resources */,
-				34BC067E1BF4DA8E000D496F /* LaunchScreen.xib in Resources */,
 				34BC067B1BF4DA8E000D496F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,14 +262,6 @@
 				34BC06781BF4DA8E000D496F /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		34BC067C1BF4DA8E000D496F /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				34BC067D1BF4DA8E000D496F /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

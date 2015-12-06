@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Choose Photo-->
+        <!--FlierCal-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="FlierCal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="FlierCal" id="9pv-A4-QxB" customClass="FirstViewController" customModule="FlierCal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -17,14 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wcU-UZ-WuE">
-                                <rect key="frame" x="150" y="50" width="300" height="300"/>
-                                <animations/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="150"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYD-eZ-dWp">
                                 <rect key="frame" x="254" y="301" width="93" height="30"/>
                                 <animations/>
@@ -45,25 +37,15 @@
                                     <action selector="openCameraButton:" destination="9pv-A4-QxB" eventType="touchUpInside" id="sCP-aR-brU"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qgg-Xr-cz1">
-                                <rect key="frame" x="150" y="400" width="300" height="150"/>
-                                <animations/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="150"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="qgg-Xr-cz1" secondAttribute="centerX" id="RDx-Wj-ngv"/>
                             <constraint firstAttribute="centerX" secondItem="BnF-To-JO2" secondAttribute="centerX" constant="-0.5" id="RtN-zr-dQp"/>
-                            <constraint firstAttribute="centerX" secondItem="wcU-UZ-WuE" secondAttribute="centerX" id="dYF-HP-Ike"/>
                             <constraint firstAttribute="centerX" secondItem="bYD-eZ-dWp" secondAttribute="centerX" constant="-0.5" id="tcp-rM-oKu"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Choose Photo" id="K5a-hr-Mzd"/>
+                    <navigationItem key="navigationItem" title="FlierCal" id="K5a-hr-Mzd"/>
                     <connections>
                         <segue destination="Jk5-BB-5OI" kind="show" identifier="showConfirm" id="334-hv-sAZ"/>
                     </connections>
@@ -150,10 +132,6 @@
                                     <state key="normal" title="Create Event">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
-                                    </userDefinedRuntimeAttributes>
                                     <connections>
                                         <action selector="createEventButton" destination="c7S-cY-bhZ" eventType="touchUpInside" id="6TW-bE-0Jg"/>
                                         <segue destination="9pv-A4-QxB" kind="show" identifier="eventCreated" id="gL2-xw-Exe"/>
@@ -494,6 +472,6 @@
         <image name="plus" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gL2-xw-Exe"/>
+        <segue reference="RkL-cp-l88"/>
     </inferredMetricsTieBreakers>
 </document>
