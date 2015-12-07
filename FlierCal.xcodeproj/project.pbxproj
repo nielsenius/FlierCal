@@ -11,6 +11,7 @@
 		3447038C1BFC04A1001FCADF /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3447038B1BFC04A1001FCADF /* ConfirmViewController.swift */; };
 		3447038E1BFC13D6001FCADF /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3447038D1BFC13D6001FCADF /* CreateEventViewController.swift */; };
 		347916CB1C0CAAB9000E446E /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347916CA1C0CAAB9000E446E /* EventDetailViewController.swift */; };
+		34BA5A351C15F0C8000B71DC /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BA5A341C15F0C8000B71DC /* MyButton.swift */; };
 		34BC06721BF4DA8E000D496F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC06711BF4DA8E000D496F /* AppDelegate.swift */; };
 		34BC06741BF4DA8E000D496F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC06731BF4DA8E000D496F /* FirstViewController.swift */; };
 		34BC06761BF4DA8E000D496F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC06751BF4DA8E000D496F /* SecondViewController.swift */; };
@@ -35,6 +36,7 @@
 		3447038B1BFC04A1001FCADF /* ConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
 		3447038D1BFC13D6001FCADF /* CreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
 		347916CA1C0CAAB9000E446E /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
+		34BA5A341C15F0C8000B71DC /* MyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
 		34BC066C1BF4DA8E000D496F /* FlierCal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlierCal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34BC06701BF4DA8E000D496F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34BC06711BF4DA8E000D496F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				341E70291C0813B700453024 /* ListEventsViewController.swift */,
 				347916CA1C0CAAB9000E446E /* EventDetailViewController.swift */,
 				34BC06931BF4E283000D496F /* WebOCR.swift */,
+				34BA5A341C15F0C8000B71DC /* MyButton.swift */,
 				34BC06771BF4DA8E000D496F /* Main.storyboard */,
 				34BC067A1BF4DA8E000D496F /* Images.xcassets */,
 				34BC066F1BF4DA8E000D496F /* Supporting Files */,
@@ -231,6 +234,7 @@
 				34BC06941BF4E283000D496F /* WebOCR.swift in Sources */,
 				3447038E1BFC13D6001FCADF /* CreateEventViewController.swift in Sources */,
 				34BC06721BF4DA8E000D496F /* AppDelegate.swift in Sources */,
+				34BA5A351C15F0C8000B71DC /* MyButton.swift in Sources */,
 				341E702A1C0813B700453024 /* ListEventsViewController.swift in Sources */,
 				347916CB1C0CAAB9000E446E /* EventDetailViewController.swift in Sources */,
 				34BC06741BF4DA8E000D496F /* FirstViewController.swift in Sources */,
