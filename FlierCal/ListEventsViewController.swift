@@ -25,6 +25,8 @@ class ListEventsViewController: UITableViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        eventStore = EKEventStore()
+        
         switch EKEventStore.authorizationStatusForEntityType(EKEntityTypeEvent) {
         case .Authorized:
             authorized = true
@@ -41,7 +43,6 @@ class ListEventsViewController: UITableViewController {
                 })
         }
         
-        eventStore = EKEventStore()
         appEvents = getAppEvents()
     }
     

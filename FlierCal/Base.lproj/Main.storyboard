@@ -17,32 +17,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYD-eZ-dWp">
-                                <rect key="frame" x="254" y="301" width="93" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BnF-To-JO2" customClass="MyButton" customModule="FlierCal" customModuleProvider="target">
+                                <rect key="frame" x="16" y="72" width="568" height="220"/>
                                 <animations/>
-                                <state key="normal" title="Photo Library">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="openPhotoLibraryButton:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Z1x-SC-I0L"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BnF-To-JO2">
-                                <rect key="frame" x="262" y="172" width="77" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Take Photo">
+                                <state key="normal" image="camera">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="openCameraButton:" destination="9pv-A4-QxB" eventType="touchUpInside" id="sCP-aR-brU"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYD-eZ-dWp" customClass="MyButton" customModule="FlierCal" customModuleProvider="target">
+                                <rect key="frame" x="16" y="300" width="568" height="243"/>
+                                <animations/>
+                                <state key="normal" image="picture">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="openPhotoLibraryButton:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Z1x-SC-I0L"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="BnF-To-JO2" secondAttribute="centerX" constant="-0.5" id="RtN-zr-dQp"/>
-                            <constraint firstAttribute="centerX" secondItem="bYD-eZ-dWp" secondAttribute="centerX" constant="-0.5" id="tcp-rM-oKu"/>
+                            <constraint firstItem="BnF-To-JO2" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="1lz-sH-6ko"/>
+                            <constraint firstItem="BnF-To-JO2" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="8" id="ARw-CE-5bd"/>
+                            <constraint firstItem="bYD-eZ-dWp" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="Bs9-Wn-YQ6"/>
+                            <constraint firstItem="BnF-To-JO2" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="Hqw-AL-XQM"/>
+                            <constraint firstItem="bYD-eZ-dWp" firstAttribute="top" secondItem="BnF-To-JO2" secondAttribute="bottom" constant="8" id="IdG-3o-lDN"/>
+                            <constraint firstItem="BnF-To-JO2" firstAttribute="height" secondItem="bYD-eZ-dWp" secondAttribute="height" id="OTG-H8-iNx"/>
+                            <constraint firstItem="bYD-eZ-dWp" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="PoR-19-tBM"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="bYD-eZ-dWp" secondAttribute="bottom" constant="8" id="ttP-8j-kpU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="FlierCal" id="K5a-hr-Mzd"/>
@@ -70,7 +76,7 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="510"/>
                                 <animations/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYl-is-fgQ">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYl-is-fgQ">
                                 <rect key="frame" x="512" y="550" width="72" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Use Photo">
@@ -81,7 +87,7 @@
                                     <segue destination="c7S-cY-bhZ" kind="show" identifier="showCreateEvent" id="8Y8-JD-hjJ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eFw-DH-WvQ">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eFw-DH-WvQ">
                                 <rect key="frame" x="16" y="550" width="48" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Cancel">
@@ -493,9 +499,12 @@
     </scenes>
     <resources>
         <image name="calendar" width="25" height="25"/>
+        <image name="camera" width="200" height="160"/>
+        <image name="picture" width="200" height="200"/>
         <image name="plus" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Hs2-ZY-9eF"/>
+        <segue reference="RkL-cp-l88"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="1" green="0.23137255009999999" blue="0.18823529780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

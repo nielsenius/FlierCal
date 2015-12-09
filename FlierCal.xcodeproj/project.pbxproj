@@ -19,6 +19,7 @@
 		34BC067B1BF4DA8E000D496F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34BC067A1BF4DA8E000D496F /* Images.xcassets */; };
 		34BC068A1BF4DA8E000D496F /* FlierCalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC06891BF4DA8E000D496F /* FlierCalTests.swift */; };
 		34BC06941BF4E283000D496F /* WebOCR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BC06931BF4E283000D496F /* WebOCR.swift */; };
+		34CD0CFD1C188A970064A771 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CD0CFC1C188A970064A771 /* Regex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		34BC06881BF4DA8E000D496F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34BC06891BF4DA8E000D496F /* FlierCalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlierCalTests.swift; sourceTree = "<group>"; };
 		34BC06931BF4E283000D496F /* WebOCR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebOCR.swift; sourceTree = "<group>"; };
+		34CD0CFC1C188A970064A771 /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				3447038D1BFC13D6001FCADF /* CreateEventViewController.swift */,
 				341E70291C0813B700453024 /* ListEventsViewController.swift */,
 				347916CA1C0CAAB9000E446E /* EventDetailViewController.swift */,
+				34CD0CFC1C188A970064A771 /* Regex.swift */,
 				34BC06931BF4E283000D496F /* WebOCR.swift */,
 				34BA5A341C15F0C8000B71DC /* MyButton.swift */,
 				34BC06771BF4DA8E000D496F /* Main.storyboard */,
@@ -230,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3447038C1BFC04A1001FCADF /* ConfirmViewController.swift in Sources */,
+				34CD0CFD1C188A970064A771 /* Regex.swift in Sources */,
 				34BC06761BF4DA8E000D496F /* SecondViewController.swift in Sources */,
 				34BC06941BF4E283000D496F /* WebOCR.swift in Sources */,
 				3447038E1BFC13D6001FCADF /* CreateEventViewController.swift in Sources */,
