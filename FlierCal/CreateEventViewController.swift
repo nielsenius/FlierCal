@@ -83,12 +83,14 @@ class CreateEventViewController: UITableViewController {
     func populateForm() {
         var imageData: NSData = UIImageJPEGRepresentation(imagePicked, 0.5)
         
-//        WebOCR.convertImageToString(imageData) { (imageText) -> Void in
-//            self.parseImageText(imageText)
-//            self.stopLoading()
-//        }
-        self.parseImageText("text")
-        self.stopLoading()
+        WebOCR.convertImageToString(imageData) { (imageText) -> Void in
+            dispatch_async(dispatch_get_main_queue()) {
+                self.parseImageText(imageText)
+                self.stopLoading()
+            }
+        }
+//        self.parseImageText("text")
+//        self.stopLoading()
     }
     
     func stopLoading() {
@@ -105,7 +107,7 @@ class CreateEventViewController: UITableViewController {
     }
     
     func parseImageText(imageText: String) {
-        titleTextField.text = "#givingCMUday"
+        titleTextField.text = imageText
         dateTextField.text = "12/1/15"
         timeTextField.text = "12:00 PM"
         locationTextField.text = "5000 Forbes Ave"

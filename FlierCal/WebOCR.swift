@@ -9,8 +9,8 @@
 import Foundation
 
 let url = "http://www.ocrwebservice.com/restservices/processDocument?gettext=true"
-let username = "FLIERCAL"
-let license = "AFA3F3AF-7B48-4583-A52D-820EE7232CFB"
+let username = "PROFH"
+let license = "73D32AAC-397F-449A-8821-575451D8C4FA"
 
 class WebOCR {
     

@@ -31,6 +31,9 @@ class EventDetailViewController: UIViewController {
         timeLabel.text = event!.startDate.time
         dateLabel.text = event!.startDate.date
         locationLabel.text = event!.location
+        
+        infoView.layer.borderWidth = 1
+        infoView.layer.cornerRadius = 8
     }
     
     override func didReceiveMemoryWarning() {
@@ -44,6 +47,7 @@ class EventDetailViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var infoView: UIView!
     
     @IBAction func shareButton() {
         let eventDetails = [
