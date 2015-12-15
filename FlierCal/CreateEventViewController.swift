@@ -18,6 +18,7 @@ class CreateEventViewController: UITableViewController {
         
         createButton.hidden = true
         cancelButton.hidden = true
+        buttonContainer.frame.size.height = UIScreen.mainScreen().bounds.height - 379
         
         eventStore = EKEventStore()
         
@@ -55,6 +56,7 @@ class CreateEventViewController: UITableViewController {
     @IBOutlet weak var timeTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     
+    @IBOutlet weak var buttonContainer: UIView!
     @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
@@ -83,14 +85,14 @@ class CreateEventViewController: UITableViewController {
     func populateForm() {
         var imageData: NSData = UIImageJPEGRepresentation(imagePicked, 0.5)
         
-        WebOCR.convertImageToString(imageData) { (imageText) -> Void in
-            dispatch_async(dispatch_get_main_queue()) {
-                self.parseImageText(imageText)
-                self.stopLoading()
-            }
-        }
-//        self.parseImageText("text")
-//        self.stopLoading()
+//        WebOCR.convertImageToString(imageData) { (imageText) -> Void in
+//            dispatch_async(dispatch_get_main_queue()) {
+//                self.parseImageText(imageText)
+//                self.stopLoading()
+//            }
+//        }
+        self.parseImageText("text")
+        self.stopLoading()
     }
     
     func stopLoading() {

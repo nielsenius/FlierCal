@@ -57,6 +57,7 @@ class EventDetailViewController: UIViewController {
             "Location: \(locationLabel.text!)"
         ]
         let activityViewController = UIActivityViewController(activityItems: eventDetails, applicationActivities: nil)
+        activityViewController.view.tintColor = self.view.tintColor
         presentViewController(activityViewController, animated: true, completion: {})
     }
     

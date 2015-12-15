@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--FlierCal-->
+        <!--Start-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController title="FlierCal" id="9pv-A4-QxB" customClass="FirstViewController" customModule="FlierCal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Start" id="9pv-A4-QxB" customClass="FirstViewController" customModule="FlierCal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -17,41 +17,69 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BnF-To-JO2" customClass="MyButton" customModule="FlierCal" customModuleProvider="target">
-                                <rect key="frame" x="16" y="72" width="568" height="220"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8WE-rh-N4e">
+                                <rect key="frame" x="16" y="72" width="568" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FlierCal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9L-1I-rH9">
+                                        <rect key="frame" x="8" y="8" width="552" height="84"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="70"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <animations/>
+                                <color key="backgroundColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="H9L-1I-rH9" secondAttribute="trailing" constant="8" id="4OZ-yW-Uen"/>
+                                    <constraint firstItem="H9L-1I-rH9" firstAttribute="top" secondItem="8WE-rh-N4e" secondAttribute="top" constant="8" id="IIz-GB-mrC"/>
+                                    <constraint firstAttribute="height" constant="100" id="mjV-BN-eih"/>
+                                    <constraint firstItem="H9L-1I-rH9" firstAttribute="leading" secondItem="8WE-rh-N4e" secondAttribute="leading" constant="8" id="t74-fR-bM2"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="8"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mc2-Cm-x2g" customClass="MyButton" customModule="FlierCal" customModuleProvider="target">
+                                <rect key="frame" x="16" y="180" width="568" height="177"/>
+                                <animations/>
+                                <color key="tintColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="camera">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="openCameraButton:" destination="9pv-A4-QxB" eventType="touchUpInside" id="sCP-aR-brU"/>
+                                    <action selector="openCameraButton:" destination="9pv-A4-QxB" eventType="touchUpInside" id="xtg-au-lOD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYD-eZ-dWp" customClass="MyButton" customModule="FlierCal" customModuleProvider="target">
-                                <rect key="frame" x="16" y="300" width="568" height="243"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bUK-It-akf" customClass="MyButton" customModule="FlierCal" customModuleProvider="target">
+                                <rect key="frame" x="16" y="365" width="568" height="178"/>
                                 <animations/>
+                                <color key="tintColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="picture">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="openPhotoLibraryButton:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Z1x-SC-I0L"/>
+                                    <action selector="openPhotoLibraryButton:" destination="9pv-A4-QxB" eventType="touchUpInside" id="rKa-mE-nS7"/>
                                 </connections>
                             </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="BnF-To-JO2" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="1lz-sH-6ko"/>
-                            <constraint firstItem="BnF-To-JO2" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="8" id="ARw-CE-5bd"/>
-                            <constraint firstItem="bYD-eZ-dWp" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="Bs9-Wn-YQ6"/>
-                            <constraint firstItem="BnF-To-JO2" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="Hqw-AL-XQM"/>
-                            <constraint firstItem="bYD-eZ-dWp" firstAttribute="top" secondItem="BnF-To-JO2" secondAttribute="bottom" constant="8" id="IdG-3o-lDN"/>
-                            <constraint firstItem="BnF-To-JO2" firstAttribute="height" secondItem="bYD-eZ-dWp" secondAttribute="height" id="OTG-H8-iNx"/>
-                            <constraint firstItem="bYD-eZ-dWp" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="PoR-19-tBM"/>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="bYD-eZ-dWp" secondAttribute="bottom" constant="8" id="ttP-8j-kpU"/>
+                            <constraint firstItem="Mc2-Cm-x2g" firstAttribute="height" secondItem="bUK-It-akf" secondAttribute="height" constant="-1" id="3VL-Nw-X6F"/>
+                            <constraint firstItem="Mc2-Cm-x2g" firstAttribute="top" secondItem="8WE-rh-N4e" secondAttribute="bottom" constant="8" id="4mC-c6-VRk"/>
+                            <constraint firstItem="bUK-It-akf" firstAttribute="top" secondItem="Mc2-Cm-x2g" secondAttribute="bottom" constant="8" id="58V-lY-WHQ"/>
+                            <constraint firstItem="8WE-rh-N4e" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="834-sO-0bK"/>
+                            <constraint firstItem="8WE-rh-N4e" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="BbA-wd-rel"/>
+                            <constraint firstItem="bUK-It-akf" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="F2h-2y-PH5"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="bUK-It-akf" secondAttribute="bottom" constant="8" id="JRE-JE-vpV"/>
+                            <constraint firstItem="Mc2-Cm-x2g" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="epp-4Q-Hdf"/>
+                            <constraint firstItem="Mc2-Cm-x2g" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="foN-bS-A4b"/>
+                            <constraint firstItem="bUK-It-akf" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="lU5-9p-BcJ"/>
+                            <constraint firstItem="8WE-rh-N4e" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="8" id="xsV-cg-PVd"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="FlierCal" id="K5a-hr-Mzd"/>
+                    <navigationItem key="navigationItem" title="Create Event" id="K5a-hr-Mzd"/>
                     <connections>
                         <segue destination="Jk5-BB-5OI" kind="show" identifier="showConfirm" id="334-hv-sAZ"/>
                     </connections>
@@ -129,16 +157,18 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="BIh-cy-QI2">
-                            <rect key="frame" x="0.0" y="264" width="600" height="336"/>
+                            <rect key="frame" x="0.0" y="264" width="600" height="286"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZP-Zl-WJf" customClass="MyButton" customModule="FlierCal" customModuleProvider="target">
-                                    <rect key="frame" x="8" y="226" width="584" height="54"/>
+                                    <rect key="frame" x="16" y="226" width="568" height="54"/>
                                     <animations/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="54" id="MMZ-cT-yT9"/>
                                     </constraints>
+                                    <color key="tintColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <state key="normal" title="Cancel">
+                                        <color key="titleColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
@@ -146,35 +176,38 @@
                                         <segue destination="9pv-A4-QxB" kind="show" identifier="" id="OsN-lI-SxK"/>
                                     </connections>
                                 </button>
-                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="6X3-ju-mmp">
-                                    <rect key="frame" x="290" y="45" width="20" height="20"/>
-                                    <animations/>
-                                </activityIndicatorView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E0a-PS-SB5" customClass="MyButton" customModule="FlierCal" customModuleProvider="target">
-                                    <rect key="frame" x="8" y="164" width="584" height="54"/>
+                                    <rect key="frame" x="16" y="164" width="568" height="54"/>
                                     <animations/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="54" id="E6H-sg-lsV"/>
                                     </constraints>
-                                    <state key="normal" title="Create Event"/>
+                                    <color key="tintColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <state key="normal" title="Create Event">
+                                        <color key="titleColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
                                     <connections>
                                         <action selector="createEventButton" destination="c7S-cY-bhZ" eventType="touchUpInside" id="6TW-bE-0Jg"/>
                                         <segue destination="9pv-A4-QxB" kind="show" identifier="eventCreated" id="gL2-xw-Exe"/>
                                     </connections>
                                 </button>
+                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="6X3-ju-mmp">
+                                    <rect key="frame" x="282" y="149" width="37" height="37"/>
+                                    <animations/>
+                                    <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </activityIndicatorView>
                             </subviews>
                             <animations/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="centerX" secondItem="kZP-Zl-WJf" secondAttribute="centerX" id="114-wu-9bR"/>
-                                <constraint firstAttribute="centerX" secondItem="E0a-PS-SB5" secondAttribute="centerX" constant="-0.5" id="Jch-tP-lwc"/>
+                                <constraint firstAttribute="bottom" secondItem="kZP-Zl-WJf" secondAttribute="bottom" constant="6" id="FrI-Gh-ytB"/>
                                 <constraint firstItem="kZP-Zl-WJf" firstAttribute="top" secondItem="E0a-PS-SB5" secondAttribute="bottom" constant="8" id="SuA-Qa-7ZA"/>
                                 <constraint firstAttribute="centerX" secondItem="6X3-ju-mmp" secondAttribute="centerX" id="XTC-dW-Fg7"/>
-                                <constraint firstAttribute="trailing" secondItem="E0a-PS-SB5" secondAttribute="trailing" constant="8" id="XZb-TL-B1T"/>
-                                <constraint firstItem="kZP-Zl-WJf" firstAttribute="leading" secondItem="BIh-cy-QI2" secondAttribute="leading" constant="8" id="Yng-ZX-VYF"/>
-                                <constraint firstItem="E0a-PS-SB5" firstAttribute="leading" secondItem="BIh-cy-QI2" secondAttribute="leading" constant="8" id="b6h-2D-6OD"/>
-                                <constraint firstAttribute="trailing" secondItem="kZP-Zl-WJf" secondAttribute="trailing" constant="8" id="yKA-Wi-m8S"/>
-                                <constraint firstAttribute="bottom" secondItem="kZP-Zl-WJf" secondAttribute="bottom" constant="56" id="zH2-tu-G7u"/>
+                                <constraint firstAttribute="trailing" secondItem="E0a-PS-SB5" secondAttribute="trailing" constant="16" id="XZb-TL-B1T"/>
+                                <constraint firstItem="kZP-Zl-WJf" firstAttribute="leading" secondItem="BIh-cy-QI2" secondAttribute="leading" constant="16" id="Yng-ZX-VYF"/>
+                                <constraint firstItem="E0a-PS-SB5" firstAttribute="leading" secondItem="BIh-cy-QI2" secondAttribute="leading" constant="16" id="b6h-2D-6OD"/>
+                                <constraint firstAttribute="centerY" secondItem="6X3-ju-mmp" secondAttribute="centerY" constant="-24.5" id="hhS-Sb-s4g"/>
+                                <constraint firstAttribute="trailing" secondItem="kZP-Zl-WJf" secondAttribute="trailing" constant="16" id="yKA-Wi-m8S"/>
                             </constraints>
                         </view>
                         <sections>
@@ -285,6 +318,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="buttonContainer" destination="BIh-cy-QI2" id="yHy-D9-utZ"/>
                         <outlet property="cancelButton" destination="kZP-Zl-WJf" id="o57-5j-zel"/>
                         <outlet property="createButton" destination="E0a-PS-SB5" id="kCj-Y6-okR"/>
                         <outlet property="dateTextField" destination="mXy-Oy-ads" id="HN6-Id-jJ0"/>
@@ -365,7 +399,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="IeV-wa-eNM"/>
                                 </constraints>
+                                <color key="tintColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Open Calendar">
+                                    <color key="titleColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -378,7 +414,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="1gC-pg-vUs"/>
                                 </constraints>
+                                <color key="tintColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Share Event">
+                                    <color key="titleColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -550,12 +588,12 @@
     </scenes>
     <resources>
         <image name="calendar" width="25" height="25"/>
-        <image name="camera" width="200" height="160"/>
-        <image name="picture" width="200" height="200"/>
+        <image name="camera" width="125" height="100"/>
+        <image name="picture" width="125" height="125"/>
         <image name="plus" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="RkL-cp-l88"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" red="1" green="0.23137255009999999" blue="0.18823529780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+    <color key="tintColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
 </document>

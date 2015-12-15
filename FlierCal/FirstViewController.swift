@@ -14,8 +14,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
         super.viewDidLoad()
         
         self.navigationItem.hidesBackButton = true
-        tintColor = UIColor(red: 255/255, green: 59/255, blue: 48/255, alpha: 1.0)
-        self.tabBarController!.tabBar.tintColor = tintColor!
+        self.tabBarController!.tabBar.tintColor = self.view.tintColor
         
         if shouldShowAlert != nil {
             showAlert()
@@ -30,7 +29,6 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
     var imagePicked: UIImage?
     var imageSource: String?
     var shouldShowAlert: Bool?
-    var tintColor: UIColor?
 
     @IBAction func openCameraButton(sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
@@ -39,7 +37,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
             imagePicker.delegate = self
             imagePicker.sourceType = UIImagePickerControllerSourceType.Camera;
             imagePicker.allowsEditing = false
-            imagePicker.view.tintColor = tintColor!
+            imagePicker.view.tintColor = self.view.tintColor
             self.presentViewController(imagePicker, animated: true, completion: nil)
         }
     }
@@ -51,7 +49,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
             imagePicker.delegate = self
             imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary;
             imagePicker.allowsEditing = false
-            imagePicker.view.tintColor = tintColor!
+            imagePicker.view.tintColor = self.view.tintColor
             self.presentViewController(imagePicker, animated: true, completion: nil)
         }
     }

@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:FlierCal.xcodeproj">
+      location = "self:/Users/Matthew/Documents/IS Innovation/Cycle 3/FlierCal/FlierCal.xcodeproj">
    </FileRef>
 </Workspace>
