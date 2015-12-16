@@ -12,12 +12,12 @@ import EventKit
 extension NSDate {
     var date: String {
         let formatter = NSDateFormatter()
-        formatter.dateFormat = "MM/dd/yyyy"
+        formatter.dateFormat = "eeee, MMM dd, yyyy"
         return formatter.stringFromDate(self)
     }
     var time: String {
         let formatter = NSDateFormatter()
-        formatter.dateFormat = "hh:mm a"
+        formatter.dateFormat = "h:mm a"
         return formatter.stringFromDate(self)
     }
 }
@@ -28,8 +28,8 @@ class EventDetailViewController: UIViewController {
         super.viewDidLoad()
         
         titleLabel.text = event!.title
-        timeLabel.text = event!.startDate.time
         dateLabel.text = event!.startDate.date
+        timeLabel.text = "Starts at \(event!.startDate.time)"
         locationLabel.text = event!.location
         
         infoView.layer.borderWidth = 1
@@ -44,8 +44,8 @@ class EventDetailViewController: UIViewController {
     var event: EKEvent?
     
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var infoView: UIView!
     

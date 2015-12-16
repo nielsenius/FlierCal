@@ -64,11 +64,11 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
             UIImageWriteToSavedPhotosAlbum(compressedImage, nil, nil, nil)
         }
         
-        performSegueWithIdentifier("showConfirm", sender: nil)
+        performSegueWithIdentifier("showCreate", sender: nil)
     }
     
     func showAlert() {
-        var alert: UIAlertView = UIAlertView(title: "Success", message: "Event has been added to your calendar", delegate: nil, cancelButtonTitle: "Dismiss")
+        var alert: UIAlertView = UIAlertView(title: "Success", message: "Event Added to Calendar", delegate: nil, cancelButtonTitle: "Dismiss")
         alert.show()
         
         // delay dismissal by 5 seconds
@@ -80,9 +80,9 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showConfirm" {
-            let showConfirm: ConfirmViewController = segue.destinationViewController as! ConfirmViewController
-            showConfirm.imagePicked = self.imagePicked!
+        if segue.identifier == "showCreate" {
+            let showCreate: CreateEventViewController = segue.destinationViewController as! CreateEventViewController
+            showCreate.imagePicked = self.imagePicked!
         }
     }
     

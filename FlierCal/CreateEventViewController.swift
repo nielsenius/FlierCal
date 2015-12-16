@@ -16,9 +16,8 @@ class CreateEventViewController: UITableViewController {
         
         self.navigationItem.hidesBackButton = true
         
-        createButton.hidden = true
-        cancelButton.hidden = true
-        buttonContainer.frame.size.height = UIScreen.mainScreen().bounds.height - 379
+        createButton.enabled = false
+        footerView.frame.size.height = UIScreen.mainScreen().bounds.height - 332
         
         eventStore = EKEventStore()
         
@@ -49,28 +48,22 @@ class CreateEventViewController: UITableViewController {
     var imagePicked: UIImage?
     var eventStore: EKEventStore?
     var authorized: Bool?
-    var eventForSegue: EKEvent?
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var timeTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     
-    @IBOutlet weak var buttonContainer: UIView!
-    @IBOutlet weak var createButton: UIButton!
-    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var createButton: UIBarButtonItem!
+    @IBOutlet weak var footerView: UIView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     @IBAction func createEventButton() {
-        let calendars = eventStore!.calendarsForEntityType(EKEntityTypeEvent)
-        
-        // http://stackoverflow.com/questions/24777496/how-can-i-convert-string-date-to-nsdate
         let startDate = NSDate()
         let endDate = startDate.dateByAddingTimeInterval(60 * 60)
         
         var event = EKEvent(eventStore: eventStore!)
         
-        // look into reminders and other event attributes
         event.calendar = eventStore!.defaultCalendarForNewEvents
         event.title = titleTextField.text
         event.startDate = startDate
@@ -78,7 +71,6 @@ class CreateEventViewController: UITableViewController {
         event.location = locationTextField.text
         event.notes = "Created with FlierCal"
         
-        eventForSegue = event
         eventStore!.saveEvent(event, span: EKSpanThisEvent, error: nil)
     }
     
@@ -96,8 +88,7 @@ class CreateEventViewController: UITableViewController {
     }
     
     func stopLoading() {
-        createButton.hidden = false
-        cancelButton.hidden = false
+        createButton.enabled = true
         loadingIndicator.stopAnimating()
     }
     
