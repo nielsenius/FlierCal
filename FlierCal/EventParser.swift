@@ -34,7 +34,7 @@ class EventParser {
     }
     
     func getTime() -> String {
-        let timeRegex = "[0-9]{1,2}(:+[0-9]{1,2})? ?(PM|pm|AM|am)*"
+        let timeRegex = "(0?[1-9]|1[012])(:[0-5]\\d) ([APap][mM])?"
         if Regex(timeRegex).contains(rawText) {
             return Regex(timeRegex).match(rawText)
         } else {

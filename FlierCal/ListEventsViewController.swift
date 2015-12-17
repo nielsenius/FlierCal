@@ -42,8 +42,13 @@ class ListEventsViewController: UITableViewController {
                     }
                 })
         }
-        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
         appEvents = getAppEvents()
+        dispatch_async(dispatch_get_main_queue()) {
+            self.tableView.reloadData()
+        }
     }
     
     override func didReceiveMemoryWarning() {
