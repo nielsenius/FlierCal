@@ -205,7 +205,6 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Create" style="done" id="Js8-Or-Nfa">
                             <connections>
-                                <action selector="createEventButton" destination="zss-3Y-hj3" id="K2a-6I-rqi"/>
                                 <segue destination="9pv-A4-QxB" kind="show" identifier="eventCreated" id="bmG-DV-Swe"/>
                             </connections>
                         </barButtonItem>

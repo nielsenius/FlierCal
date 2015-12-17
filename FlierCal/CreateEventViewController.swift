@@ -58,8 +58,8 @@ class CreateEventViewController: UITableViewController {
     @IBOutlet weak var footerView: UIView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
-    @IBAction func createEventButton() {
-        let startDate = NSDate()
+    func createEvent() {
+        let startDate = convertDate(dateTextField.text)
         let endDate = startDate.dateByAddingTimeInterval(60 * 60)
         
         var event = EKEvent(eventStore: eventStore!)
@@ -94,6 +94,7 @@ class CreateEventViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "eventCreated" {
+            createEvent()
             let home: FirstViewController = segue.destinationViewController as! FirstViewController
             home.shouldShowAlert = true
         }
@@ -105,6 +106,28 @@ class CreateEventViewController: UITableViewController {
         dateTextField.text = eventParser.getDate()
         timeTextField.text = eventParser.getTime()
         locationTextField.text = eventParser.getLocation()
+    }
+    
+    func convertDate(dateString: String) -> NSDate {
+        let dateFormatter = NSDateFormatter()
+        
+        if dateString.rangeOfString(",") != nil {
+            dateFormatter.dateFormat = "MMMM dd, yyyy"
+        } else if Regex("(\\d{1,2})\\/(\\d{1,2})\\/(\\d{2,4})").contains("1/1/2016") {
+            if Regex("\\d{4}").contains(dateString) {
+                dateFormatter.dateFormat = "MM/dd/yyyy"
+            } else {
+                dateFormatter.dateFormat = "MM/dd/yy"
+            }
+        } else {
+            return NSDate()
+        }
+        
+        if let date = dateFormatter.dateFromString(dateString) {
+            return date
+        } else {
+            return NSDate()
+        }
     }
     
 }
