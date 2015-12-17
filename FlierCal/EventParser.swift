@@ -33,7 +33,7 @@ class EventParser {
     }
     
     func getTime() -> String {
-        let timeRegex = "[0-9]{1,2}:+[0-9]{1,2} ?(PM|pm|AM|am)*"
+        let timeRegex = "[0-9]{1,2}(:+[0-9]{1,2})? ?(PM|pm|AM|am)*"
         if Regex(timeRegex).contains(rawText) {
             return Regex(timeRegex).match(rawText)
         } else {
@@ -42,7 +42,12 @@ class EventParser {
     }
     
     func getLocation() -> String {
-        return "Location"
+        let locationRegex = "[0-9]{1,5} ?( [a-z]*){1,2}."
+        if Regex(locationRegex).contains(rawText) {
+            return Regex(locationRegex).match(rawText)
+        } else {
+            return ""
+        }
     }
     
 }
