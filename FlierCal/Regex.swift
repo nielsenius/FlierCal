@@ -28,4 +28,8 @@ class Regex {
     func match(input: String) -> String {
         return (input as NSString).substringWithRange(range(input))
     }
+    
+    func contains(input: String) -> Bool {
+        return !NSEqualRanges(range(input), NSMakeRange(0,0))
+    }
 }

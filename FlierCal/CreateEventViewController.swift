@@ -83,7 +83,7 @@ class CreateEventViewController: UITableViewController {
 //                self.stopLoading()
 //            }
 //        }
-        self.parseImageText("text")
+        self.parseImageText("Event starts at 9:00 PM on 1/1/16")
         self.stopLoading()
     }
     
@@ -100,10 +100,11 @@ class CreateEventViewController: UITableViewController {
     }
     
     func parseImageText(imageText: String) {
-        titleTextField.text = imageText
-        dateTextField.text = "12/1/15"
-        timeTextField.text = "12:00 PM"
-        locationTextField.text = "5000 Forbes Ave"
+        let eventParser = EventParser(imageText)
+        titleTextField.text = eventParser.getTitle()
+        dateTextField.text = eventParser.getDate()
+        timeTextField.text = eventParser.getTime()
+        locationTextField.text = eventParser.getLocation()
     }
     
 }
