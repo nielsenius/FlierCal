@@ -77,14 +77,14 @@ class CreateEventViewController: UITableViewController {
     func populateForm() {
         var imageData: NSData = UIImageJPEGRepresentation(imagePicked, 0.5)
         
-//        WebOCR.convertImageToString(imageData) { (imageText) -> Void in
-//            dispatch_async(dispatch_get_main_queue()) {
-//                self.parseImageText(imageText)
-//                self.stopLoading()
-//            }
-//        }
-        self.parseImageText("Event starts at 9:00 PM on 1/1/16")
-        self.stopLoading()
+        WebOCR.convertImageToString(imageData) { (imageText) -> Void in
+            dispatch_async(dispatch_get_main_queue()) {
+                self.parseImageText(imageText)
+                self.stopLoading()
+            }
+        }
+//        self.parseImageText("Event Name starts at 9:00 PM on December 25 at 5000 Forbes Ave")
+//        self.stopLoading()
     }
     
     func stopLoading() {
@@ -110,20 +110,19 @@ class CreateEventViewController: UITableViewController {
     
     func convertDate(dateString: String) -> NSDate {
         let dateFormatter = NSDateFormatter()
+        var finalDate: String
         
-        if dateString.rangeOfString(",") != nil {
-            dateFormatter.dateFormat = "MMMM dd, yyyy"
-        } else if Regex("(\\d{1,2})\\/(\\d{1,2})\\/(\\d{2,4})").contains("1/1/2016") {
-            if Regex("\\d{4}").contains(dateString) {
-                dateFormatter.dateFormat = "MM/dd/yyyy"
-            } else {
-                dateFormatter.dateFormat = "MM/dd/yy"
-            }
+        if Regex("[A-z]").contains(dateString) {
+            dateFormatter.dateFormat = "MMMM dd, yyyy h:mm a"
+            finalDate = "\(dateString), 2015 \(timeTextField.text)"
+        } else if Regex("(\\d{1,2})\\/(\\d{1,2})").contains(dateString) {
+            dateFormatter.dateFormat = "MM/dd/yyyy h:mm a"
+            finalDate = "\(dateString)/2015 \(timeTextField.text)"
         } else {
             return NSDate()
         }
         
-        if let date = dateFormatter.dateFromString(dateString) {
+        if let date = dateFormatter.dateFromString(finalDate) {
             return date
         } else {
             return NSDate()

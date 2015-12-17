@@ -17,12 +17,13 @@ class EventParser {
     }
     
     func getTitle() -> String {
-        return "Title"
+        let a = split(rawText) {$0 == " "}
+        return "\(a[0]) \(a[1])"
     }
     
     func getDate() -> String {
-        let dateRegex1 = "(\\d{1,2})\\/(\\d{1,2})\\/(\\d{2,4})"
-        let dateRegex2 = "(jan|january|feb|february|mar|march|apr|april|may|jun|june|jul|july|aug|august|sep|september|oct|october|nov|november|dec|december) ([0-9]{1,2},) ([0-9]{2,4})"
+        let dateRegex1 = "(\\d{1,2})\\/(\\d{1,2})"
+        let dateRegex2 = "(jan|january|feb|february|mar|march|apr|april|may|jun|june|jul|july|aug|august|sep|september|oct|october|nov|november|dec|december) ([0-9]{1,2})"
         if Regex(dateRegex1).contains(rawText) {
             return Regex(dateRegex1).match(rawText)
         } else if Regex(dateRegex2).contains(rawText) {
@@ -42,7 +43,7 @@ class EventParser {
     }
     
     func getLocation() -> String {
-        let locationRegex = "[0-9]{1,5} ?( [a-z]*){1,2}."
+        let locationRegex = "\\d+\\s+\\w+\\s+(?:st(?:\\.|reet)?|ave(?:\\.|nue)?|lane|dr(?:\\.|ive)?)"
         if Regex(locationRegex).contains(rawText) {
             return Regex(locationRegex).match(rawText)
         } else {
