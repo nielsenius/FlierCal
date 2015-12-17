@@ -42,7 +42,7 @@ class EventParser {
     }
     
     func getLocation() -> String {
-        return "text"
+        return "Location"
     }
     
 }
