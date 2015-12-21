@@ -22,7 +22,7 @@ class Converter {
         if inputDate == "" {
             return getToday()
         } else if Regex("[A-z]").contains(inputDate) {
-            if Regex("[0-9]{2,4}").contains(inputDate) {
+            if Regex("[0-9]{4}").contains(inputDate) {
                 return inputDate
             } else {
                 return "\(inputDate), \(getYear())"
@@ -42,7 +42,7 @@ class Converter {
         } else if !Regex("PM|AM").contains(inputTime) {
             return "\(inputTime) PM"
         } else if !Regex(" ").contains(inputTime) {
-            let time = Regex("[0-9]+").match(inputTime)
+            let time = Regex("([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]").match(inputTime)
             let sign = Regex("PM|AM").match(inputTime)
             return "\(time) \(sign)"
         } else {
@@ -59,7 +59,7 @@ class Converter {
         if Regex("[A-z]").contains(dateString) {
             dateFormatter.dateFormat = "MMMM dd, yyyy h:mm a"
         } else {
-            dateFormatter.dateFormat = "MM/dd/yyyy h:mm a"
+            dateFormatter.dateFormat = "MM/dd/yy h:mm a"
         }
         
         if let d = dateFormatter.dateFromString(dateTimeString) {

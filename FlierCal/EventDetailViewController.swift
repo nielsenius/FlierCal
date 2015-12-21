@@ -12,7 +12,7 @@ import EventKit
 extension NSDate {
     var date: String {
         let formatter = NSDateFormatter()
-        formatter.dateFormat = "eeee, MMM dd, yyyy"
+        formatter.dateFormat = "eeee, MMM d, yyyy"
         return formatter.stringFromDate(self)
     }
     var time: String {

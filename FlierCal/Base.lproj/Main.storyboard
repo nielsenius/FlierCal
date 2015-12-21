@@ -8,7 +8,7 @@
         <!--Start-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController title="Start" id="9pv-A4-QxB" customClass="FirstViewController" customModule="FlierCal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Start" id="9pv-A4-QxB" customClass="HomeViewController" customModule="FlierCal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8WE-rh-N4e">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8WE-rh-N4e">
                                 <rect key="frame" x="16" y="72" width="568" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FlierCal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9L-1I-rH9">
@@ -40,7 +40,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="8"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mc2-Cm-x2g" customClass="MyButton" customModule="FlierCal" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mc2-Cm-x2g" customClass="MyButton" customModule="FlierCal" customModuleProvider="target">
                                 <rect key="frame" x="16" y="180" width="568" height="177"/>
                                 <animations/>
                                 <color key="tintColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -51,7 +51,7 @@
                                     <action selector="openCameraButton:" destination="9pv-A4-QxB" eventType="touchUpInside" id="xtg-au-lOD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bUK-It-akf" customClass="MyButton" customModule="FlierCal" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bUK-It-akf" customClass="MyButton" customModule="FlierCal" customModuleProvider="target">
                                 <rect key="frame" x="16" y="365" width="568" height="178"/>
                                 <animations/>
                                 <color key="tintColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -350,8 +350,8 @@
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Rn-Qh-pis">
-                                                <rect key="frame" x="0.0" y="12" width="568" height="50"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Rn-Qh-pis">
+                                                <rect key="frame" x="16" y="12" width="536" height="50"/>
                                                 <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="q8h-1H-Jv9"/>
@@ -366,7 +366,7 @@
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="OyH-Uo-aN6" secondAttribute="trailing" id="4Z3-Pp-zYm"/>
                                             <constraint firstItem="OyH-Uo-aN6" firstAttribute="leading" secondItem="8n8-ea-bwg" secondAttribute="leading" id="4nO-v9-FpZ"/>
-                                            <constraint firstAttribute="trailing" secondItem="1Rn-Qh-pis" secondAttribute="trailing" id="M2c-7W-J8h"/>
+                                            <constraint firstAttribute="trailing" secondItem="1Rn-Qh-pis" secondAttribute="trailing" constant="16" id="M2c-7W-J8h"/>
                                             <constraint firstAttribute="height" constant="169" id="RMP-8x-1kU"/>
                                             <constraint firstItem="KLh-T7-rZ8" firstAttribute="top" secondItem="7xn-Rj-aTi" secondAttribute="bottom" constant="8" id="SHP-as-sPB"/>
                                             <constraint firstAttribute="trailing" secondItem="7xn-Rj-aTi" secondAttribute="trailing" id="dNR-Pv-IJO"/>
@@ -376,7 +376,7 @@
                                             <constraint firstAttribute="bottom" secondItem="KLh-T7-rZ8" secondAttribute="bottom" constant="20" id="xEl-xk-LQd"/>
                                             <constraint firstItem="KLh-T7-rZ8" firstAttribute="leading" secondItem="8n8-ea-bwg" secondAttribute="leading" id="xFy-DB-EVw"/>
                                             <constraint firstItem="7xn-Rj-aTi" firstAttribute="leading" secondItem="8n8-ea-bwg" secondAttribute="leading" id="ylo-Vo-2Sd"/>
-                                            <constraint firstItem="1Rn-Qh-pis" firstAttribute="leading" secondItem="8n8-ea-bwg" secondAttribute="leading" id="zvf-am-SiR"/>
+                                            <constraint firstItem="1Rn-Qh-pis" firstAttribute="leading" secondItem="8n8-ea-bwg" secondAttribute="leading" constant="16" id="zvf-am-SiR"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -484,7 +484,7 @@
         <image name="plus" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bmG-DV-Swe"/>
+        <segue reference="RkL-cp-l88"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
 </document>

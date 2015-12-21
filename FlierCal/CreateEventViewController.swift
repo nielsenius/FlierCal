@@ -59,7 +59,8 @@ class CreateEventViewController: UITableViewController {
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     func createEvent() {
-        let startDate = convertDate(dateTextField.text)
+        let converter = Converter(inputDate: dateTextField.text, inputTime: timeTextField.text)
+        let startDate = converter.convertToNSDate()
         let endDate = startDate.dateByAddingTimeInterval(60 * 60)
         
         var event = EKEvent(eventStore: eventStore!)
@@ -77,14 +78,12 @@ class CreateEventViewController: UITableViewController {
     func populateForm() {
         var imageData: NSData = UIImageJPEGRepresentation(imagePicked, 0.5)
         
-//        WebOCR.convertImageToString(imageData) { (imageText) -> Void in
-//            dispatch_async(dispatch_get_main_queue()) {
-//                self.parseImageText(imageText)
-//                self.stopLoading()
-//            }
-//        }
-        self.parseImageText("Event Name starts at 9:00 PM on December 25 at 5000 Forbes Ave")
-        self.stopLoading()
+        WebOCR.convertImageToString(imageData) { (imageText) -> Void in
+            dispatch_async(dispatch_get_main_queue()) {
+                self.parseImageText(imageText)
+                self.stopLoading()
+            }
+        }
     }
     
     func stopLoading() {
@@ -109,27 +108,6 @@ class CreateEventViewController: UITableViewController {
         dateTextField.text = eventParser.getDate()
         timeTextField.text = eventParser.getTime()
         locationTextField.text = eventParser.getLocation()
-    }
-    
-    func convertDate(dateString: String) -> NSDate {
-        let dateFormatter = NSDateFormatter()
-        var finalDate: String
-        
-        if Regex("[A-z]").contains(dateString) {
-            dateFormatter.dateFormat = "MMMM dd, yyyy h:mm a"
-            finalDate = "\(dateString), 2015 \(timeTextField.text)"
-        } else if Regex("(\\d{1,2})\\/(\\d{1,2})").contains(dateString) {
-            dateFormatter.dateFormat = "MM/dd/yyyy h:mm a"
-            finalDate = "\(dateString)/2015 \(timeTextField.text)"
-        } else {
-            return NSDate()
-        }
-        
-        if let date = dateFormatter.dateFromString(finalDate) {
-            return date
-        } else {
-            return NSDate()
-        }
     }
     
 }
