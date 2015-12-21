@@ -1,5 +1,5 @@
 //
-//  DetailViewController.swift
+//  CreateEventViewController.swift
 //  FlierCal
 //
 //  Created by Matthew Nielsen on 11/17/15.
@@ -77,14 +77,14 @@ class CreateEventViewController: UITableViewController {
     func populateForm() {
         var imageData: NSData = UIImageJPEGRepresentation(imagePicked, 0.5)
         
-        WebOCR.convertImageToString(imageData) { (imageText) -> Void in
-            dispatch_async(dispatch_get_main_queue()) {
-                self.parseImageText(imageText)
-                self.stopLoading()
-            }
-        }
-//        self.parseImageText("Event Name starts at 9:00 PM on December 25 at 5000 Forbes Ave")
-//        self.stopLoading()
+//        WebOCR.convertImageToString(imageData) { (imageText) -> Void in
+//            dispatch_async(dispatch_get_main_queue()) {
+//                self.parseImageText(imageText)
+//                self.stopLoading()
+//            }
+//        }
+        self.parseImageText("Event Name starts at 9:00 PM on December 25 at 5000 Forbes Ave")
+        self.stopLoading()
     }
     
     func stopLoading() {
@@ -94,14 +94,17 @@ class CreateEventViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "eventCreated" {
-            createEvent()
-            let home: FirstViewController = segue.destinationViewController as! FirstViewController
-            home.shouldShowAlert = true
+            let home: HomeViewController = segue.destinationViewController as! HomeViewController
+            if authorized! {
+                createEvent()
+                home.shouldShowAlert = true
+            }
         }
     }
     
     func parseImageText(imageText: String) {
         let eventParser = EventParser(imageText)
+        
         titleTextField.text = eventParser.getTitle()
         dateTextField.text = eventParser.getDate()
         timeTextField.text = eventParser.getTime()
